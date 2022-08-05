@@ -1,4 +1,4 @@
-package com.example.db_searchapp.Model;
+package model;
 
 
 //this class will contain variables for the users info

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.db_searchapp.Model.UsersInfo;
+import model.UsersInfo;
 
 
 public class DataBaseInfo  extends SQLiteOpenHelper {

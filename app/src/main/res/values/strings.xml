@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DB_SearchApp</string>
+    <string name="FirstName">Enter fName</string>
+    <string name="LastName">Enter LName</string>
+    <string name="address">Enter Address</string>
+    <string name="Phone">Enter Phone#</string>
+    <string name="Age">Enter Age</string>
+    <string name="activeUser">Active_User</string>
 </resources>
