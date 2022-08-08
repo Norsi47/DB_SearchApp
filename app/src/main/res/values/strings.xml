@@ -6,4 +6,6 @@
     <string name="Phone">Enter Phone#</string>
     <string name="Age">Enter Age</string>
     <string name="activeUser">Active_User</string>
+    <string name="ViewCustomer">View_User</string>
+    <string name="Adduser">Add_User</string>
 </resources>
