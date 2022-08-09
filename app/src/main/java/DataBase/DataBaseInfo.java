@@ -38,7 +38,6 @@ public class DataBaseInfo  extends SQLiteOpenHelper {
         //execute the sql command (changed the colors to match sql)
        sqLiteDatabase.execSQL(createTableSQL);
 
-
     }
 
     @Override
