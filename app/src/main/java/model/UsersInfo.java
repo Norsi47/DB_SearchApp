@@ -6,13 +6,13 @@ public class UsersInfo {
 
     //the variables that should display
     private int id;
-    private String firstName, lastName, address, phone;
-    private int age;
+    private String firstName, lastName, address;
+    private int age, phone;
     //if user is an active customer or not
     private boolean isUserActive;
 
     //everything inside the body is needed for when we want to get all users info in data base
-    public UsersInfo(int id, String firstName, String lastName, String address, String phone, int age, boolean isUserActive) {
+    public UsersInfo(int id, String firstName, String lastName, String address, int phone, int age, boolean isUserActive) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,11 +70,11 @@ public class UsersInfo {
         this.address = address;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
