@@ -90,11 +90,13 @@ public class Main_Activity extends AppCompatActivity {
 
 
 
-//    public void showCustomerOnRecyclerList(DataBaseInfo dataBaseInfo1) {
-//        arrayAdapter = new ArrayAdapter<UsersInfo>(Main_Activity.this,
-//                android.R.layout.simple_expandable_list_item_1, dataBaseInfo1. )
-//
-//    }
+//the list view Ui side
+    public void showCustomerOnRecyclerList(DataBaseInfo dataBaseInfo1) {
+        arrayAdapter = new ArrayAdapter<UsersInfo>(Main_Activity.this,
+                android.R.layout.simple_expandable_list_item_1, dataBaseInfo1.selectAllCustomer());
+
+
+    }
 
 
 
