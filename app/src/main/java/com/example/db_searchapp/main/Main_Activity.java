@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class Main_Activity extends AppCompatActivity {
     //use this for Plain Text palette
     EditText fName, lName, age, addy, phone;
 
-    RecyclerView recyclerViewUsersInfo;
+    ListView recyclerViewUsersInfo;
     RecyclerView.LayoutManager recycleLayoutManager;
     Switch activeSwitch;
 
@@ -94,8 +95,7 @@ public class Main_Activity extends AppCompatActivity {
     public void showCustomerOnRecyclerList(DataBaseInfo dataBaseInfo1) {
         arrayAdapter = new ArrayAdapter<UsersInfo>(Main_Activity.this,
                 android.R.layout.simple_expandable_list_item_1, dataBaseInfo1.selectAllCustomer());
-
-
+        recyclerViewUsersInfo.setAdapter(arrayAdapter);//this only works on ListView and not recycleview
     }
 
 
