@@ -37,7 +37,7 @@ public class UsersInfo {
     }
 
     //getter and setters needed to be able to "get" the variable name and also "set" the variable name
-    
+
     public int getId() {
         return id;
     }

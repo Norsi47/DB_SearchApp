@@ -14,7 +14,7 @@ import java.util.List;
 import model.UsersInfo;
 
 
-public class DataBaseInfo  extends SQLiteOpenHelper {
+public class DataBaseInfo extends SQLiteOpenHelper {
 
     public static final String DB_Name = "UsersInfo_DB.db";
     public static final int DB_VersionNum = 1;
@@ -40,7 +40,7 @@ public class DataBaseInfo  extends SQLiteOpenHelper {
                 COLUMN_LAST_NAME + " TEXT, " + COLUMN_ADDRESS + " TEXT, " + COLUMN_PHONE + " INT, " + COLUMN_USER_AGE + " INT, " + COLUMN_ACTIVE_USER + " BOOL) ";
 
         //execute the sql command (changed the colors to match sql)
-       sqLiteDatabase.execSQL(createTableSQL);
+        sqLiteDatabase.execSQL(createTableSQL);
 
     }
 
@@ -94,15 +94,14 @@ public class DataBaseInfo  extends SQLiteOpenHelper {
                 String address = cursor.getString(3);
                 int phone = cursor.getInt(4);
                 int age = cursor.getInt(5);
-                boolean activeUser = cursor.getInt(6) == 1 ? true: false;
+                boolean activeUser = cursor.getInt(6) == 1 ? true : false;
 
                 UsersInfo usersInfo = new UsersInfo(userId, firstName, lastName, address, phone, age, activeUser);
                 //put all this into the usersInfo empy list
                 usersInfoList.add(usersInfo);
             }
             while (cursor.moveToNext());
-        }
-        else {
+        } else {
 
         }
         //closes the cursor when db is done

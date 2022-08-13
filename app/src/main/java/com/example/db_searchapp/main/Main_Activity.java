@@ -56,8 +56,8 @@ public class Main_Activity extends AppCompatActivity {
 //            }
 //        });\
         /*the other way to do this
-        *the (view) is goten from the view in line 50
-        * click on -> to see where class goes*/
+         *the (view) is goten from the view in line 50
+         * click on -> to see where class goes*/
         addUserButton.setOnClickListener((view) -> {
             //did not initiate class here because we need to use it later in try and catch
             UsersInfo usersInfo;
@@ -72,8 +72,7 @@ public class Main_Activity extends AppCompatActivity {
                 //will display when button is pressed
                 //will print out the toString in users info
                 Toast.makeText(Main_Activity.this, usersInfo.toString(), Toast.LENGTH_SHORT).show();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(Main_Activity.this, "Error Creating Customer", Toast.LENGTH_SHORT).show();
                 usersInfo = new UsersInfo(-1, "fName Error", "lName error",
                         "addy error", 0, 0, false);
@@ -90,14 +89,12 @@ public class Main_Activity extends AppCompatActivity {
     }
 
 
-
-//the list view Ui side
+    //the list view Ui side
     public void showCustomerOnRecyclerList(DataBaseInfo dataBaseInfo1) {
         arrayAdapter = new ArrayAdapter<UsersInfo>(Main_Activity.this,
                 android.R.layout.simple_expandable_list_item_1, dataBaseInfo1.selectAllCustomer());
         recyclerViewUsersInfo.setAdapter(arrayAdapter);//this only works on ListView and not recycleview
     }
-
 
 
 }
