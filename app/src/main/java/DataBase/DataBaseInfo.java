@@ -111,4 +111,21 @@ public class DataBaseInfo extends SQLiteOpenHelper {
 
     }
 
+    public boolean deleteUser(UsersInfo usersInfo) {
+        //if customer is found in database, delete and return true, if not return false
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();//writable because it is "deleting" info
+
+        String queryString = "DELETE FROM " + USERS_INFO_TABLE + " WHERE "
+                + COLUMN_ID + " = " + usersInfo.getId();
+        Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
 }

@@ -22,6 +22,10 @@ public class UsersInfo {
         this.isUserActive = isUserActive;
     }
 
+    public UsersInfo() {
+
+    }
+
     //to string to print out info on the UI side when called
     @Override
     public String toString() {

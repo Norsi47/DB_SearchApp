@@ -1,6 +1,8 @@
 package com.example.db_searchapp.main;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +50,9 @@ public class Main_Activity extends AppCompatActivity {
 
         dataBaseInfo = new DataBaseInfo(Main_Activity.this);
 
+        //calling in show list when clicked
+        showCustomerOnRecyclerList(dataBaseInfo);
+
 
 //        addUserButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -83,6 +88,26 @@ public class Main_Activity extends AppCompatActivity {
             boolean success = dataBaseInfo.addIntoDB(usersInfo);
             //print out if success
             Toast.makeText(Main_Activity.this, "Successfully= " + success, Toast.LENGTH_SHORT).show();
+
+        });
+
+        //what will happen when user info is clicked on list
+        recyclerViewUsersInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                UsersInfo usersInfo = (UsersInfo) adapterView.getItemAtPosition(i);
+                dataBaseInfo.deleteUser(usersInfo);
+                showCustomerOnRecyclerList(dataBaseInfo);
+                Toast.makeText(Main_Activity.this, "Deleted " + usersInfo.toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        //viewall button logic
+        buttonViewUser.setOnClickListener((view)-> {
+            //when pressed show user in database
+            DataBaseInfo dataBaseInfo = new DataBaseInfo(Main_Activity.this);
+            showCustomerOnRecyclerList(dataBaseInfo);
 
         });
 
