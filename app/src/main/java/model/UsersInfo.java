@@ -27,6 +27,9 @@ public class UsersInfo {
     }
 
     //to string to print out info on the UI side when called
+    //no need to use set can just use getToString
+    /*for example firstName.getText().toString()
+    * will come here and get the address*/
     @Override
     public String toString() {
         return "UsersInfo{" +

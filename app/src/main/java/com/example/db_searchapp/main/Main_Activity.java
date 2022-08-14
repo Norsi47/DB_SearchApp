@@ -11,7 +11,6 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.db_searchapp.R;
 
@@ -23,11 +22,11 @@ public class Main_Activity extends AppCompatActivity {
     //match variable names to id names
     Button buttonViewUser, addUserButton;
     //use this for Plain Text palette
-    EditText fName, lName, age, addy, phone;
+    EditText firstName, lastName, age, address, phone;
 
-    ListView recyclerViewUsersInfo;
-    RecyclerView.LayoutManager recycleLayoutManager;
-    Switch activeSwitch;
+    ListView recyclerViewUsersInfo;//List view more appropriate for showing added info
+
+    Switch isUserActive;
 
     ArrayAdapter arrayAdapter;
     DataBaseInfo dataBaseInfo;
@@ -41,12 +40,12 @@ public class Main_Activity extends AppCompatActivity {
         //assign ids in UI to variable names
         buttonViewUser = findViewById(R.id.buttonViewUser);
         addUserButton = findViewById(R.id.addUserButton);
-        fName = findViewById(R.id.fNameID);
-        lName = findViewById(R.id.LNameID);
+        firstName = findViewById(R.id.fNameID);
+        lastName = findViewById(R.id.LNameID);
         age = findViewById(R.id.ageID);
-        addy = findViewById(R.id.addyID);
+        address = findViewById(R.id.addyID);
         phone = findViewById(R.id.phoneId);
-        recyclerViewUsersInfo = findViewById(R.id.recyclerViewUsersInfo);
+        recyclerViewUsersInfo = findViewById(R.id.listView);
 
         dataBaseInfo = new DataBaseInfo(Main_Activity.this);
 
@@ -71,8 +70,8 @@ public class Main_Activity extends AppCompatActivity {
             try {
                 //gets the toString in UserInfo class
                 //needs to match all variable names called in userInfo contructor
-                usersInfo = new UsersInfo(-1, fName.getText().toString(), lName.getText().toString(), addy.getText().toString(),
-                        Integer.parseInt(age.getText().toString()), Integer.parseInt(phone.getText().toString()), activeSwitch.isChecked());
+                usersInfo = new UsersInfo(-1, firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(),
+                        Integer.parseInt(age.getText().toString()), Integer.parseInt(phone.getText().toString()), isUserActive.isChecked());
 
                 //will display when button is pressed
                 //will print out the toString in users info
@@ -91,6 +90,15 @@ public class Main_Activity extends AppCompatActivity {
 
         });
 
+        //viewall button logic
+        buttonViewUser.setOnClickListener((view)-> {
+            //when pressed show user in database
+            DataBaseInfo dataBaseInfo = new DataBaseInfo(Main_Activity.this);
+            showCustomerOnRecyclerList(dataBaseInfo);
+
+        });
+
+
         //what will happen when user info is clicked on list
         recyclerViewUsersInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -103,13 +111,7 @@ public class Main_Activity extends AppCompatActivity {
             }
         });
 
-        //viewall button logic
-        buttonViewUser.setOnClickListener((view)-> {
-            //when pressed show user in database
-            DataBaseInfo dataBaseInfo = new DataBaseInfo(Main_Activity.this);
-            showCustomerOnRecyclerList(dataBaseInfo);
 
-        });
 
     }
 
